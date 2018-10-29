@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FFFC39</color>
+    <color name="BPJSTKGreen">#47935B</color>
+    <color name="BPJSTKYellow">#FFFC39</color>
+</resources>

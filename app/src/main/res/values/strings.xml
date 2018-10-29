@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Prototype BPJSTKU</string>
+    <string name="company">BPJS Ketenagakerjaan</string>
+    <string name="login_autofill"><u>Klik untuk isi form otomatis</u></string>
+    <string name="forgot_password"><u>Lupa akun</u></string>
+    <string name="register"><u>Buat akun</u></string>
+</resources>
