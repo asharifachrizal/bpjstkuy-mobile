@@ -1,5 +1,7 @@
-package com.example.asharifachrizal.prototypebpjstku;
+package com.example.asharifachrizal.BPJSTKUY;
 
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,9 +35,20 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editTextEmail.setText("lionelmessi@mailinator.com");
-                editTextPIN.setText("123456");
+                validate(editTextEmail.getText().toString(), editTextPIN.getText().toString());
             }
         });
+    }
+
+    private void validate(String email, String pin) {
+        if(email.equals("lionelmessi@mailinator.com") && pin.equals("123456")) {
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
+        } else {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+            alertDialog.setTitle("Terjadi Kesalahan!");
+            alertDialog.setMessage("Kombinasi email dan PIN salah. Silahkan memasukkan inputan email dan PIN kembali.");
+            alertDialog.show();
+        }
     }
 }
