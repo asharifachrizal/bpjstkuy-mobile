@@ -1,70 +1,76 @@
 package com.example.asharifachrizal.BPJSTKUY;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.Toast;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.widget.TextView;
 
-import com.example.asharifachrizal.BPJSTKUY.adapter.NewsAdapter;
-import com.example.asharifachrizal.BPJSTKUY.api.ApiInterface;
-import com.example.asharifachrizal.BPJSTKUY.api.RetrofitInstance;
-import com.example.asharifachrizal.BPJSTKUY.model.News;
-import com.example.asharifachrizal.BPJSTKUY.model.NewsList;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
+import com.example.asharifachrizal.BPJSTKUY.fragment.DashboardFragment;
+import com.example.asharifachrizal.BPJSTKUY.fragment.InformationFragment;
+import com.example.asharifachrizal.BPJSTKUY.fragment.ProfileFragment;
+import com.example.asharifachrizal.BPJSTKUY.fragment.ReportFragment;
+import com.example.asharifachrizal.BPJSTKUY.fragment.SimulationFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private NewsAdapter mNewsAdapter;
+//    private TextView mTextMessage;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_dashboard:
+                    DashboardFragment dashboardFragment = new DashboardFragment();
+                    FragmentTransaction fragmentDashboardTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentDashboardTransaction.replace(R.id.content, dashboardFragment);
+                    fragmentDashboardTransaction.commit();
+                    return true;
+                case R.id.navigation_information:
+                    InformationFragment informationFragment = new InformationFragment();
+                    FragmentTransaction fragmentInformationTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentInformationTransaction.replace(R.id.content, informationFragment);
+                    fragmentInformationTransaction.commit();
+                    return true;
+                case R.id.navigation_report:
+                    ReportFragment reportFragment = new ReportFragment();
+                    FragmentTransaction fragmentReportTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentReportTransaction.replace(R.id.content, reportFragment);
+                    fragmentReportTransaction.commit();
+                    return true;
+                case R.id.navigation_simulation:
+                    SimulationFragment simulationFragment = new SimulationFragment();
+                    FragmentTransaction fragmentSimulationTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentSimulationTransaction.replace(R.id.content, simulationFragment);
+                    fragmentSimulationTransaction.commit();
+                    return true;
+                case R.id.navigation_profile:
+                    ProfileFragment profileFragment = new ProfileFragment();
+                    FragmentTransaction fragmentProfileTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentProfileTransaction.replace(R.id.content, profileFragment);
+                    fragmentProfileTransaction.commit();
+                    return true;
+            }
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        /*Create handle for the RetrofitInstance interface*/
-        ApiInterface service = RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
+        DashboardFragment dashboardFragment = new DashboardFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content, dashboardFragment);
+        fragmentTransaction.commit();
 
-        /*Call the method with parameter in the interface to get the employee data*/
-        Call<NewsList> call = service.getNews();
-
-        /*Log the URL called*/
-        Log.wtf("URL Called", call.request().url() + "");
-
-        call.enqueue(new Callback<NewsList>() {
-            @Override
-            public void onResponse(Call<NewsList> call, Response<NewsList> response) {
-                Log.wtf("URL Called", response + "");
-                generateNewsList(response.body().getNewsList());
-            }
-
-            @Override
-            public void onFailure(Call<NewsList> call, Throwable t) {
-                Log.wtf("URL Called", t + "");
-                Toast.makeText(HomeActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    /*Method to generate List of employees using RecyclerView with custom adapter*/
-    private void generateNewsList(ArrayList<News> newsDataList) {
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewNewsList);
-
-        mNewsAdapter = new NewsAdapter(newsDataList);
-
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
-
-        mRecyclerView.setLayoutManager(layoutManager);
-
-        mRecyclerView.setAdapter(mNewsAdapter);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
 }

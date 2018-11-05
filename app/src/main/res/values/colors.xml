@@ -2,7 +2,9 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FFFC39</color>
-    <color name="BPJSTKGreen">#47935B</color>
-    <color name="BPJSTKYellow">#FFFC39</color>
+    <color name="colorAccent">#00AED8</color>
+    <color name="BPJSTKGreen">#25B45A</color>
+    <color name="BPJSTKYellow">#D6DE52</color>
+    <color name="BPJSTKBlue">#00AED8</color>
+    <color name="softBlack">#313131</color>
 </resources>
