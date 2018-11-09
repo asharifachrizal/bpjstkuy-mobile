@@ -10,7 +10,7 @@ public class News {
     private String body;
     @SerializedName("reporter")
     private String reporter;
-    @SerializedName("createdAt")
+    @SerializedName("created_at")
     private String createdAt;
 
     public News(String title, String body, String reporter, String createdAt) {

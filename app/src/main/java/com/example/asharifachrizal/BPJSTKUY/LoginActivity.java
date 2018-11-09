@@ -1,5 +1,6 @@
 package com.example.asharifachrizal.BPJSTKUY;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -42,12 +43,17 @@ public class LoginActivity extends AppCompatActivity {
 
     private void validate(String email, String pin) {
         if(email.equals("lionelmessi@mailinator.com") && pin.equals("123456")) {
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
-            alertDialog.setTitle("Terjadi Kesalahan!");
-            alertDialog.setMessage("Kombinasi email dan PIN salah. Silahkan memasukkan inputan email dan PIN kembali.");
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this)
+                    .setTitle("Terjadi Kesalahan!")
+                    .setMessage("Kombinasi email dan PIN salah. Silahkan memasukkan inputan email dan PIN kembali.")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
             alertDialog.show();
         }
     }

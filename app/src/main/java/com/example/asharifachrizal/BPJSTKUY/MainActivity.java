@@ -5,16 +5,21 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
 
+import com.example.asharifachrizal.BPJSTKUY.api.ApiInterface;
+import com.example.asharifachrizal.BPJSTKUY.api.RetrofitInstance;
 import com.example.asharifachrizal.BPJSTKUY.fragment.DashboardFragment;
 import com.example.asharifachrizal.BPJSTKUY.fragment.InformationFragment;
 import com.example.asharifachrizal.BPJSTKUY.fragment.ProfileFragment;
 import com.example.asharifachrizal.BPJSTKUY.fragment.ReportFragment;
 import com.example.asharifachrizal.BPJSTKUY.fragment.SimulationFragment;
+import com.example.asharifachrizal.BPJSTKUY.model.NewsList;
 
-public class HomeActivity extends AppCompatActivity {
+import retrofit2.Call;
+
+public class MainActivity extends AppCompatActivity {
 
 //    private TextView mTextMessage;
 
@@ -62,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_main);
 
         DashboardFragment dashboardFragment = new DashboardFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
