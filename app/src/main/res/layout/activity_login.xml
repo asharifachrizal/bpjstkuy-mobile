@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <TextView
@@ -37,7 +36,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="BPJSTKU"
+        android:text="BPJSTKUY"
         android:textColor="@color/colorPrimary"
         android:textSize="48dp"
         android:textStyle="bold"

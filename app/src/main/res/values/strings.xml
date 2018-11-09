@@ -1,7 +1,16 @@
 <resources>
-    <string name="app_name">Prototype BPJSTKU</string>
+    <string name="app_name">BPJSTKUY</string>
     <string name="company">BPJS Ketenagakerjaan</string>
     <string name="login_autofill"><u>Klik untuk isi form otomatis</u></string>
     <string name="forgot_password"><u>Lupa akun</u></string>
     <string name="register"><u>Buat akun</u></string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_dashboard">Beranda</string>
+    <string name="title_information">Informasi</string>
+    <string name="title_report">Pelaporan</string>
+    <string name="title_simulation">Simulasi</string>
+    <string name="title_profile">Profil</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

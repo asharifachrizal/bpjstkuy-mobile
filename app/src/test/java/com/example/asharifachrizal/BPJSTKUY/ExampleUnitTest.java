@@ -1,4 +1,4 @@
-package com.example.asharifachrizal.prototypebpjstku;
+package com.example.asharifachrizal.BPJSTKUY;
 
 import org.junit.Test;
 
