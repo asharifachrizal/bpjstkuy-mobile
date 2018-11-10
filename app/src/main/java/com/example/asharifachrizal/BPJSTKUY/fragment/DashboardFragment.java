@@ -4,6 +4,7 @@ package com.example.asharifachrizal.BPJSTKUY.fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.example.asharifachrizal.BPJSTKUY.DisplayProfileFragment;
 import com.example.asharifachrizal.BPJSTKUY.R;
 import com.example.asharifachrizal.BPJSTKUY.SliderIndicator;
 import com.example.asharifachrizal.BPJSTKUY.SliderPagerAdapter;
@@ -51,8 +53,14 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
         sliderView = (SliderView) rootView.findViewById(R.id.sliderView);
         mLinearLayout = (LinearLayout) rootView.findViewById(R.id.pagesContainer);
+
+        DisplayProfileFragment displayProfileFragment = new DisplayProfileFragment();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.contentDisplayProfile, displayProfileFragment);
+        fragmentTransaction.commit();
 
 
         /*Create handle for the RetrofitInstance interface*/
