@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.DashboardFragment">
+    tools:context=".DashboardFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.example.asharifachrizal.BPJSTKUY.SliderView
+            <com.example.asharifachrizal.BPJSTKUY._slider.SliderView
                 android:id="@+id/sliderView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

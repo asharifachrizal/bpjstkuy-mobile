@@ -1,12 +1,9 @@
-package com.example.asharifachrizal.BPJSTKUY;
+package com.example.asharifachrizal.BPJSTKUY._slider;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.asharifachrizal.BPJSTKUY.fragment.SliderFragment;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class SliderPagerAdapter extends FragmentStatePagerAdapter {

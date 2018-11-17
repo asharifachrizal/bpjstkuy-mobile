@@ -1,4 +1,4 @@
-package com.example.asharifachrizal.BPJSTKUY.fragment;
+package com.example.asharifachrizal.BPJSTKUY;
 
 
 import android.content.DialogInterface;
