@@ -12,7 +12,9 @@
         android:id="@+id/linearLayoutDisplayProfile"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
+        android:background="@color/BPJSTKGreen"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayoutSlider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,12 +33,13 @@
     <RelativeLayout
         android:id="@+id/relativeLayoutSlider"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="165dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/BPJSTKYellow"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutJHTMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +99,7 @@
             android:paddingRight="5.5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/dashboard1" />
+            android:src="@drawable/dashboard01" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -106,7 +109,7 @@
             android:paddingLeft="2.5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/dashboard2" />
+            android:src="@drawable/dashboard02" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -115,7 +118,7 @@
             android:paddingLeft="5.5dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:src="@drawable/dashboard3" />
+            android:src="@drawable/dashboard03" />
 
     </LinearLayout>
 

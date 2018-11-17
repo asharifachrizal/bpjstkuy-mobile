@@ -1,11 +1,15 @@
 package com.example.asharifachrizal.BPJSTKUY;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.asharifachrizal.BPJSTKUY.api.ApiInterface;
@@ -21,7 +25,13 @@ import retrofit2.Call;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private TextView mTextMessage;
+    final Fragment fragment1 = new DashboardFragment();
+    final Fragment fragment2 = new InformationFragment();
+    final Fragment fragment3 = new ReportFragment();
+    final Fragment fragment4 = new SimulationFragment();
+    final Fragment fragment5 = new ProfileFragment();
+    final FragmentManager fm = getSupportFragmentManager();
+    Fragment active = fragment1;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,34 +40,24 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_dashboard:
-                    DashboardFragment dashboardFragment = new DashboardFragment();
-                    FragmentTransaction fragmentDashboardTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentDashboardTransaction.replace(R.id.content, dashboardFragment);
-                    fragmentDashboardTransaction.commit();
+                    fm.beginTransaction().hide(active).show(fragment1).commit();
+                    active = fragment1;
                     return true;
                 case R.id.navigation_information:
-                    InformationFragment informationFragment = new InformationFragment();
-                    FragmentTransaction fragmentInformationTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentInformationTransaction.replace(R.id.content, informationFragment);
-                    fragmentInformationTransaction.commit();
+                    fm.beginTransaction().hide(active).show(fragment2).commit();
+                    active = fragment2;
                     return true;
                 case R.id.navigation_report:
-                    ReportFragment reportFragment = new ReportFragment();
-                    FragmentTransaction fragmentReportTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentReportTransaction.replace(R.id.content, reportFragment);
-                    fragmentReportTransaction.commit();
+                    fm.beginTransaction().hide(active).show(fragment3).commit();
+                    active = fragment3;
                     return true;
                 case R.id.navigation_simulation:
-                    SimulationFragment simulationFragment = new SimulationFragment();
-                    FragmentTransaction fragmentSimulationTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentSimulationTransaction.replace(R.id.content, simulationFragment);
-                    fragmentSimulationTransaction.commit();
+                    fm.beginTransaction().hide(active).show(fragment4).commit();
+                    active = fragment4;
                     return true;
                 case R.id.navigation_profile:
-                    ProfileFragment profileFragment = new ProfileFragment();
-                    FragmentTransaction fragmentProfileTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentProfileTransaction.replace(R.id.content, profileFragment);
-                    fragmentProfileTransaction.commit();
+                    fm.beginTransaction().hide(active).show(fragment5).commit();
+                    active = fragment5;
                     return true;
             }
             return false;
@@ -69,13 +69,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DashboardFragment dashboardFragment = new DashboardFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content, dashboardFragment);
-        fragmentTransaction.commit();
-
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        fm.beginTransaction().add(R.id.content, fragment5, "5").hide(fragment5).commit();
+        fm.beginTransaction().add(R.id.content, fragment4, "4").hide(fragment4).commit();
+        fm.beginTransaction().add(R.id.content, fragment3, "3").hide(fragment3).commit();
+        fm.beginTransaction().add(R.id.content, fragment2, "2").hide(fragment2).commit();
+        fm.beginTransaction().add(R.id.content,fragment1, "1").commit();
     }
 
 }

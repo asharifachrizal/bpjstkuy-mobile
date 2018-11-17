@@ -2,7 +2,9 @@ package com.example.asharifachrizal.BPJSTKUY.fragment;
 
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -31,6 +33,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,7 +51,6 @@ public class DashboardFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,26 +65,21 @@ public class DashboardFragment extends Fragment {
         fragmentTransaction.replace(R.id.contentDisplayProfile, displayProfileFragment);
         fragmentTransaction.commit();
 
+        SharedPreferences preferences = getActivity().getSharedPreferences("mPreferences", MODE_PRIVATE);
+        String token = preferences.getString("token", null);
 
-        /*Create handle for the RetrofitInstance interface*/
         ApiInterface service = RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
-
-        /*Call the method with parameter in the interface to get the employee data*/
-        Call<BannerList> call = service.getBanners();
-
-        /*Log the URL called*/
-        Log.wtf("URL Called", call.request().url() + "");
+        Call<BannerList> call = service.getBanners(token);
+        Log.wtf("token: ", token + "");
 
         call.enqueue(new Callback<BannerList>() {
             @Override
             public void onResponse(Call<BannerList> call, Response<BannerList> response) {
-                Log.wtf("URL Called", response + "");
                 generateBannerList(response.body().getBannerList(), rootView);
             }
 
             @Override
             public void onFailure(Call<BannerList> call, Throwable t) {
-                Log.wtf("URL Called", t + "");
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext())
                         .setTitle("Terjadi Kesalahan!")
                         .setMessage("Silahkan cek kembali pengaturan jaringan anda.")
@@ -94,8 +92,6 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
-        // Inflate the layout for this fragment
         return rootView;
     }
 
@@ -105,6 +101,7 @@ public class DashboardFragment extends Fragment {
         List<Fragment> fragments = new ArrayList<>();
         for(int i = 0; i < bannerDataList.size(); i++) {
             fragments.add(SliderFragment.newInstance(bannerDataList.get(i).getPath()));
+            Log.wtf("rwat", bannerDataList.get(i).getPath() + "");
         }
 
         mAdapter = new SliderPagerAdapter(getFragmentManager(), fragments);

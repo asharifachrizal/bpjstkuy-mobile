@@ -7,7 +7,7 @@ public class RetrofitInstance {
 
     private static Retrofit retrofit;
 //    private static final String BASE_URL = "http://bpjstkuy.klinikginjal-mitrahusada.com/api/";
-    private static final String BASE_URL = "http://192.168.137.251/bpjstkuy/public/api/";
+    private static final String BASE_URL = "http://bpjstkuy.klinikginjal-mitrahusada.com/api/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
