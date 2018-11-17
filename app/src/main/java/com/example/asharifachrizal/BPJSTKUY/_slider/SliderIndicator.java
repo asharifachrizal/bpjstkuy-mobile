@@ -1,4 +1,4 @@
-package com.example.asharifachrizal.BPJSTKUY;
+package com.example.asharifachrizal.BPJSTKUY._slider;
 
 import android.content.Context;
 import android.content.res.Resources;

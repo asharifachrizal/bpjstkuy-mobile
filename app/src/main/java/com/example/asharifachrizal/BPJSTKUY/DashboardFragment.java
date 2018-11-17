@@ -1,10 +1,9 @@
-package com.example.asharifachrizal.BPJSTKUY.fragment;
+package com.example.asharifachrizal.BPJSTKUY;
 
 
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -14,17 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.asharifachrizal.BPJSTKUY.DisplayProfileFragment;
+import com.example.asharifachrizal.BPJSTKUY._displayPicture.DisplayProfileFragment;
 import com.example.asharifachrizal.BPJSTKUY.R;
-import com.example.asharifachrizal.BPJSTKUY.SliderIndicator;
-import com.example.asharifachrizal.BPJSTKUY.SliderPagerAdapter;
-import com.example.asharifachrizal.BPJSTKUY.SliderView;
+import com.example.asharifachrizal.BPJSTKUY._slider.SliderFragment;
+import com.example.asharifachrizal.BPJSTKUY._slider.SliderIndicator;
+import com.example.asharifachrizal.BPJSTKUY._slider.SliderPagerAdapter;
+import com.example.asharifachrizal.BPJSTKUY._slider.SliderView;
 import com.example.asharifachrizal.BPJSTKUY.api.ApiInterface;
 import com.example.asharifachrizal.BPJSTKUY.api.RetrofitInstance;
 import com.example.asharifachrizal.BPJSTKUY.model.Banner;
 import com.example.asharifachrizal.BPJSTKUY.model.BannerList;
-import com.example.asharifachrizal.BPJSTKUY.model.News;
-import com.example.asharifachrizal.BPJSTKUY.model.NewsList;
 
 import java.util.ArrayList;
 import java.util.List;
