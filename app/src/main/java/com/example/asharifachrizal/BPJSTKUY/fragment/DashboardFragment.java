@@ -101,6 +101,7 @@ public class DashboardFragment extends Fragment {
         List<Fragment> fragments = new ArrayList<>();
         for(int i = 0; i < bannerDataList.size(); i++) {
             fragments.add(SliderFragment.newInstance(bannerDataList.get(i).getPath()));
+            Log.wtf("rwat", bannerDataList.get(i).getPath() + "");
         }
 
         mAdapter = new SliderPagerAdapter(getFragmentManager(), fragments);

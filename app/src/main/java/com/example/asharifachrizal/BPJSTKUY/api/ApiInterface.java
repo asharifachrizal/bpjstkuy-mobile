@@ -13,11 +13,11 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
 
-    @GET("details")
-    Call<User> getUser(@Header("Authorization") String authHeader);
-
     @POST("login")
     Call<User> auth(@Body Auth auth);
+
+    @GET("details")
+    Call<User> getUser(@Header("Authorization") String authHeader);
 
     @GET("news")
     Call<NewsList> getNews(@Header("Authorization") String authHeader);

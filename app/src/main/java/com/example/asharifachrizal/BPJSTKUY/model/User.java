@@ -21,6 +21,8 @@ public class User {
     private String dob;
     @SerializedName("address")
     private String address;
+    @SerializedName("path_dp")
+    private String path_dp;
     @SerializedName("token")
     private String token;
 
@@ -82,6 +84,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPath_dp() {
+        return path_dp;
+    }
+
+    public void setPath_dp(String path_dp) {
+        this.path_dp = path_dp;
     }
 
     public String getToken() {
